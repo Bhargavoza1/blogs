@@ -37,13 +37,21 @@ I suggest to visit given link for more detail explanation -> [MLflow Projects](h
 
 
 ## MLflow Models
+An MLflow Model is a standard format for packaging machine learning models that can be used in a variety of downstream tools—for example, real-time serving through a REST API or batch inference on Apache Spark. 
+The format defines a convention that lets you save a model in different “flavors” that can be understood by different downstream tools.
+
+I suggest to visit given link for more detail explanation about flavors -> [flavors](https://mlflow.org/docs/latest/models.html#built-in-model-flavors) 
+
 
 ## Model Registry
 Model Registry assists in handling different versions of models, discerning their current state, and ensuring smooth productionization. 
 It offers a centralized model store, APIs, and UI to collaboratively manage an MLflow Model’s full lifecycle, including model lineage, versioning, aliasing, tagging, and annotations.
 
 ## MLflow Deployments Server for LLMs
+The MLflow Deployments Server is a powerful tool designed to streamline the usage and management of various large language model (LLM) providers, such as OpenAI and Anthropic, within an organization. 
+It offers a high-level interface that simplifies the interaction with these services by providing a unified endpoint to handle specific LLM related requests.
+
 A major advantage of using the MLflow Deployments Server is its centralized management of API keys.
-
-
-## MLflow LLM Evaluate
+By storing these keys in one secure location, organizations can significantly enhance their security posture by minimizing the exposure of sensitive API keys throughout the system. 
+It also helps to prevent exposing these keys within code or requiring end-users to manage keys safely.
+ 
