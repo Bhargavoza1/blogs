@@ -86,6 +86,13 @@ The output is typically 1 if the input is greater than or equal to the threshold
 
 For more information about activations function, please visit this given Wikipedia link. -> [Multiple Activation functions](https://en.wikipedia.org/wiki/Activation_function)
 
+```math main equation without bias(b)
+Y = 
+\begin{cases} 
+1, & \text{if} \quad \sum^n_{i=1} W_i X_i \geq 0 \\ 
+0, & \text{else} 
+\end{cases}
+```
 ```Python
 def step_function(weightsum):
     if(weightsum >= 0):
@@ -109,6 +116,15 @@ In neural network , bias refers to a constant that is added to the summation of 
 However, in the case of a single perceptron with a step function, the practical significance of the bias is limited. It becomes more significant in more complex neural network architectures where non-linear activation functions are used and the network needs to learn and adapt to various patterns in the data.
 
 However, I will make an attempt to explain this with help of code.
+
+```math 
+Y = 
+\begin{cases} 
+1, & \text{if} \quad \sum^n_{i=1} W_i X_i \geq 0 \\ 
+0, & \text{else} 
+\end{cases}
+```
+
 ```Python
 import numpy as np
 
