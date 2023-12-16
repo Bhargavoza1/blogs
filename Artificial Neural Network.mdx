@@ -6,10 +6,10 @@ date: '2023-12-14'
 tags: ['deeplearning','neuralnetwork','ann','blog']
 ---
 
-I have always been intrigued by the workings of the human brain and how it enables us to comprehend various sounds and discern the intricacies of colors. 
+I have always been fascinate by the workings of the human brain and how it enables us to comprehend various sounds and understand the details of colors. 
 With each new piece of knowledge I acquire, I realize that there are numerous concepts at play in our quest for understanding.
 
-The human brain is an incredibly intricate and advanced organ, and its ability to process information and perceive details is a result of complex neural mechanisms. However, what is the fundamental concept that underlies these processes? 
+The human brain is very complex and advanced organ, and its ability to process information and perceive details is a result of complex neural mechanisms. However, what is the fundamental concept that underlies these processes? 
 Mathematics and wave functions emerge as key players in explaining and comprehending the mechanisms of perception and information processing within the brain. In this blog, we will solely focus on the role of Mathematics in this regard.
 
 Now, let's delve into a fascinating realm that bridges the sophistication of the human brain with cutting-edge technology—artificial neural networks.
@@ -25,10 +25,10 @@ Dendrites, on the other hand, are extensions that receive information from neigh
 his brief statement provides us short idea of how our neuron cell behave.
 
 ## Artificial Neuron(Perceptron)
-Artificial neuron, also referred to as perceptrons, serve as the fundamental building blocks of neural networks. 
-These mathematical functions are derived from the structure of biological neurons and can be likened to basic logic gates that produce binary outputs. They are occasionally referred to as perceptrons as well.
+Artificial neuron, also referred to as perceptrons, serve as the fundamental building blocks of Artificial neural networks. 
+These mathematical functions are derived from the structure of biological neurons and can be likened to basic logic gates that produce binary outputs.  
 
-<br/><br/><br/>
+<br/><br/>
 # Perceptron
 It is the primary step to learn Machine Learning and Deep Learning technologies, which consists of a set of weights, input values or scores, and a bias. 
 Perceptron is a building block of an Artificial Neural Network. Initially, in the mid of 19th century, Mr. Frank Rosenblatt invented the Perceptron for performing certain calculations to detect input data capabilities or business intelligence. 
@@ -37,8 +37,8 @@ Perceptron is a linear Machine Learning algorithm used for supervised learning f
 ```math
 Y = 
 \begin{cases} 
-1, & \text{if} \quad \sum^n_{i=1} W_i X_i \geq \theta \\ 
-0, & \text{otherwise} 
+1, & \text{if} \quad \sum^n_{i=1} W_i X_i + b \geq \theta \\ 
+0, & \text{else} 
 \end{cases}
 ```
 
@@ -49,14 +49,18 @@ Let’s begin
 ## Input Layer(X)
 The Perceptron's main element is responsible for receiving the initial data and facilitating its subsequent processing within the system. Each input node is designed to hold a specific real numerical value.
 
-## Wight(W) and Bias(b)
+## Weight(W)
 The weight parameter signifies the magnitude of the link between units. It is a crucial parameter within the Perceptron components. The weight is directly correlated to the influence of the corresponding input neuron in determining the output. 
-Additionally, the bias can be viewed as the intercept line in a linear equation.
+In other words,The weights in an ANN are crucial because they directly influence the signals transmitted across the network and ultimately determine the network's output. 
+During the training phase, the ANN learns by iteratively adjusting these weights to predict the correct output for a given set of inputs. 
+The set of weights in the network encapsulates what the network has learned from the training data, effectively encoding the knowledge necessary for making predictions or decisions.
 
 ## Weighted sum
 In the first step first, multiply all input values with corresponding weight values and then add them to determine the weighted sum. Mathematically, we can calculate the weighted sum as follows:
+Once we understed the concept of activation functions, we will gain a comprehensive understanding of bias.
+
 ```math
-\sum_{i=1}^n W_iX_i + b
+\sum_{i=1}^n W_iX_i
 ```
 
 ```Python
@@ -71,7 +75,7 @@ The neuron's firing potential is influenced by these crucial and definitive elem
 
 ```
 
-<br/><br/><br/>
+<br/><br/>
 # Neural Network
 A neural network is like a team of interconnected perceptrons (basic computing units) that imitates, in a simplified way, how the human brain works. 
 Each perceptron is connected to others, and during learning, these connections get adjusted. While it's inspired by the brain,It's a simpler model created for specific tasks, not as complex as the real thing.
