@@ -65,15 +65,15 @@ In the first step first, multiply all input values with corresponding weight val
 ```Python
 import numpy as np
 
-inputs = np.array([-4,0,2,-7])
+inputs = np.array([-4,0,2,-5])
 weights = np.array([0.1,0.5,0.7,1.2])
 
 weightsum= np.dot(inputs,weights)
 
 
 # weightsum= dot(x,w)
-#16 =  dot([5,7,2,9] , [0.1,0.5,0.7,1.2])
-#-7.4 =  dot([-4,0,2,-7] , [0.1,0.5,0.7,1.2])
+# 5 =  dot([0,0,2,3] , [0.1,0.5,0.7,1.2])
+#-5 =  dot([-4,0,2,-5] , [0.1,0.5,0.7,1.2])
 
 ```
 
@@ -83,7 +83,8 @@ Activation functions introduce non-linearity to the network, allowing it to lear
 
 In the context of a single perceptron, the step function is often used as the activation function. Is a mathematical function that produces a binary output based on whether the input exceeds a specified threshold. 
 The output is typically 1 if the input is greater than or equal to the threshold and 0 otherwise.
-[Multiple Activation functions](https://en.wikipedia.org/wiki/Activation_function)
+
+For more information about activations function, please visit this given Wikipedia link. -> [Multiple Activation functions](https://en.wikipedia.org/wiki/Activation_function)
 
 ```Python
 def step_function(weightsum):
@@ -96,16 +97,47 @@ step_function(weightsum)
 
 # weightsum= dot(x,w)
 
-#16 =  dot([5,7,2,9] , [0.1,0.5,0.7,1.2])
+# 5 =  dot([0,0,2,3] , [0.1,0.5,0.7,1.2])
 # 1 = step_function(16)
 
-#-7.4 =  dot([-4,0,2,-7] , [0.1,0.5,0.7,1.2])
-# 0 = step_function(-7.4)
+#-5 =  dot([-4,0,2,-5]  , [0.1,0.5,0.7,1.2])
+# 0 = step_function(5)
 ```
 
 ## Bias
-In simpler terms, the neural network bias refers to a constant that is added to the multiplication of features and weights. Its purpose is to adjust the outcome and assist the models in shifting the activation function towards either the positive or negative side. 
-However, in the case of a single perceptron with a step function, the practical significance of the bias is limited.
+In neural network , bias refers to a constant that is added to the summation of product of features and weights. Its purpose is to adjust the outcome and assist the models in shifting the activation function towards either the positive or negative side. 
+However, in the case of a single perceptron with a step function, the practical significance of the bias is limited. It becomes more significant in more complex neural network architectures where non-linear activation functions are used and the network needs to learn and adapt to various patterns in the data.
+
+However, I will make an attempt to explain this with help of code.
+```Python
+import numpy as np
+
+inputs = np.array([0,0,2,3])
+weights = np.array([0.1,0.5,0.7,1.2])
+bias = -6
+
+weightsum= np.dot(inputs,weights) + bias
+
+def step_function(weightsum):
+    if(weightsum >= 0):
+        return 1
+    else:
+        return 0
+
+step_function(weightsum)
+
+# weightsum= dot(x,w)
+
+#bias = -6
+# -1 =  dot([0,0,2,3] , [0.1,0.5,0.7,1.2]) + bias
+# 0 = step_function(-1)
+
+# bias = 6
+# 1 =  dot([-4,0,2,-5] , [0.1,0.5,0.7,1.2]) + bias
+# 1 = step_function(1)
+```
+This showcases how the bias term influences the decision boundary of the perceptron. Adjusting the bias allows the perceptron to shift its decision threshold, influencing whether it activates or not based on the input features.
+
 
 <br/><br/>
 # Neural Network
