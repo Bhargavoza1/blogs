@@ -35,9 +35,9 @@ Perceptron is a building block of an Artificial Neural Network. Initially, in th
 Perceptron is a linear Machine Learning algorithm used for supervised learning for various binary classifiers. This algorithm enables neurons to learn elements and processes them one by one during preparation. 
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/perceptron.png"  alt="perceptron" height={512} width={512} />
 ```math
-y = 
+Y = 
 \begin{cases} 
-1, & \text{if} \quad \sum^n_{i=1} w_i x_i \geq \theta \\ 
+1, & \text{if} \quad \sum^n_{i=1} W_i X_i \geq \theta \\ 
 0, & \text{otherwise} 
 \end{cases}
 ```
@@ -53,16 +53,19 @@ The Perceptron's main element is responsible for receiving the initial data and 
 The weight parameter signifies the magnitude of the link between units. It is a crucial parameter within the Perceptron components. The weight is directly correlated to the influence of the corresponding input neuron in determining the output. 
 Additionally, the bias can be viewed as the intercept line in a linear equation.
 
-## Activation Function
-The neuron's firing potential is influenced by these crucial and definitive elements. The Activation Function, in particular, can be predominantly viewed as a step function. 
-[Multiple Activation functions](https://en.wikipedia.org/wiki/Activation_function)
-
-
-### Weighted sum
+## Weighted sum
 In the first step first, multiply all input values with corresponding weight values and then add them to determine the weighted sum. Mathematically, we can calculate the weighted sum as follows:
 ```math
 Y =(\sum_{i=1}^n W_iX_i + b)
 ```
+
+```Python
+
+```
+
+## Activation Function
+The neuron's firing potential is influenced by these crucial and definitive elements. The Activation Function, in particular, can be predominantly viewed as a step function. 
+[Multiple Activation functions](https://en.wikipedia.org/wiki/Activation_function)
 
 ```Python
 
