@@ -57,13 +57,23 @@ The set of weights in the network encapsulates what the network has learned from
 
 ## Weighted sum
 In the first step first, multiply all input values with corresponding weight values and then add them to determine the weighted sum. Mathematically, we can calculate the weighted sum as follows:
-Once we understed the concept of activation functions, we will gain a comprehensive understanding of bias.
 
 ```math
 \sum_{i=1}^n W_iX_i
 ```
 
 ```Python
+import numpy as np
+
+inputs = np.array([-4,0,2,-7])
+weights = np.array([0.1,0.5,0.7,1.2])
+
+weightsum= np.dot(inputs,weights)
+
+
+# weightsum= dot(x,w)
+#16 =  dot([5,7,2,9] , [0.1,0.5,0.7,1.2])
+#-7.4 =  dot([-4,0,2,-7] , [0.1,0.5,0.7,1.2])
 
 ```
 
