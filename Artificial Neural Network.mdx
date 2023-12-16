@@ -51,7 +51,7 @@ The Perceptron's main element is responsible for receiving the initial data and 
 
 ## Weight(W)
 The weight parameter signifies the magnitude of the link between units. It is a crucial parameter within the Perceptron components. The weight is directly correlated to the influence of the corresponding input neuron in determining the output. 
-In other words,The weights in an ANN are crucial because they directly influence the signals transmitted across the network and ultimately determine the network's output. 
+In other words, The weights in an ANN are crucial because they directly influence the signals transmitted across the network and ultimately determine the network's output. 
 During the training phase, the ANN learns by iteratively adjusting these weights to predict the correct output for a given set of inputs. 
 The set of weights in the network encapsulates what the network has learned from the training data, effectively encoding the knowledge necessary for making predictions or decisions.
 
@@ -78,11 +78,29 @@ weightsum= np.dot(inputs,weights)
 ```
 
 ## Activation Function
-The neuron's firing potential is influenced by these crucial and definitive elements. The Activation Function, in particular, can be predominantly viewed as a step function. 
+An activation function is a mathematical operation applied to the input of a neuron in a neural network. It determines the output of the neuron, which is then used as input for the next layer in the network. 
+Activation functions introduce non-linearity to the network, allowing it to learn and approximate complex relationships in data. but in single perceptron we have linear decision boundaries. 
+
+In the context of a single perceptron, the step function is often used as the activation function. Is a mathematical function that produces a binary output based on whether the input exceeds a specified threshold. 
+The output is typically 1 if the input is greater than or equal to the threshold and 0 otherwise.
 [Multiple Activation functions](https://en.wikipedia.org/wiki/Activation_function)
 
 ```Python
+def step_function(weightsum):
+    if(weightsum >= 0):
+        return 1
+    else:
+        return 0
 
+step_function(weightsum)
+
+# weightsum= dot(x,w)
+
+#16 =  dot([5,7,2,9] , [0.1,0.5,0.7,1.2])
+# 1 = step_function(16)
+
+#-7.4 =  dot([-4,0,2,-7] , [0.1,0.5,0.7,1.2])
+# 0 = step_function(-7.4)
 ```
 
 <br/><br/>
