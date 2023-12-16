@@ -34,13 +34,6 @@ It is the primary step to learn Machine Learning and Deep Learning technologies,
 Perceptron is a building block of an Artificial Neural Network. Initially, in the mid of 19th century, Mr. Frank Rosenblatt invented the Perceptron for performing certain calculations to detect input data capabilities or business intelligence. 
 Perceptron is a linear Machine Learning algorithm used for supervised learning for various binary classifiers. This algorithm enables neurons to learn elements and processes them one by one during preparation. 
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/perceptron.png"  alt="perceptron" height={512} width={512} />
-```math
-Y = 
-\begin{cases} 
-1, & \text{if} \quad \sum^n_{i=1} W_i X_i + b \geq 0 \\ 
-0, & \text{else} 
-\end{cases}
-```
 
 Please be patient as I provide a detailed explanation of neural networks. We will thoroughly dissect each component of the neural network, and I will also provide a Python code snippet for the mathematical equations involved.
 Let’s begin 
@@ -86,8 +79,7 @@ The output is typically 1 if the input is greater than or equal to the threshold
 
 For more information about activations function, please visit this given Wikipedia link. -> [Multiple Activation functions](https://en.wikipedia.org/wiki/Activation_function)
 
-```math 
-**main equation without bias(b)**
+```math  
 Y = 
 \begin{cases} 
 1, & \text{if} \quad \sum^n_{i=1} W_i X_i \geq 0 \\ 
@@ -118,10 +110,10 @@ However, in the case of a single perceptron with a step function, the practical 
 
 However, I will make an attempt to explain this with help of code.
 
-```math 
+ ```math
 Y = 
 \begin{cases} 
-1, & \text{if} \quad \sum^n_{i=1} W_i X_i \geq 0 \\ 
+1, & \text{if} \quad \sum^n_{i=1} W_i X_i + b \geq 0 \\ 
 0, & \text{else} 
 \end{cases}
 ```
