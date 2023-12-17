@@ -182,21 +182,25 @@ equation to calculat forward pass
 
 ```math  
 Y = \sum_{i=0,j=0}^n X_i.W_{ij} + b_j 
+```
 
+```math  
 X= \begin{bmatrix}
 x_{0} & ... & x_{i}\\
- \end{bmatrix}
+ \end{bmatrix} 
 
 W= \begin{bmatrix}
 w_{00} & ... & w_{0j}\\
 . & . & .\\
 . &  . & .\\
-w_{i0} & ... & w_{ij}
+w_{i0} & ... & w_{ij}\end{bmatrix}
  
 B= \begin{bmatrix}
 b_{0} & ... b x_{j}\\
  \end{bmatrix}
+```
 
+```math  
 Y = XW + B
 
 ```
