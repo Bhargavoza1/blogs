@@ -178,12 +178,12 @@ It involves the sequential computation of the network's activations from the inp
 
 
 ### Let's begin to write Forward propagation
-equation to calculat forward pass
 
+equation to calculat forward pass
+We can compute this formula for every output neuron in one shot using a dot product :
 ```math  
 Y = \sum_{i=0,j=0}^n X_i.W_{ij} + b_j 
 ```
-
 ```math  
 X= \begin{bmatrix}
 x_{0} & ... & x_{i}\\
@@ -199,7 +199,6 @@ B= \begin{bmatrix}
 b_{0} & ... b x_{j}\\
  \end{bmatrix}
 ```
-
 ```math  
 Y = XW + B
 
