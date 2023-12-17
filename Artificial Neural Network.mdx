@@ -181,24 +181,27 @@ It involves the sequential computation of the network's activations from the inp
 
 equation to calculat forward pass
 We can compute this formula for every output neuron in one shot using a dot product :
+<br/>
 ```math  
 Y = \sum_{i=0,j=0}^n X_i.W_{ij} + b_j 
 ```
+<br/>
 ```math  
 X= \begin{bmatrix}
 x_{0} & ... & x_{i}\\
- \end{bmatrix} 
+ \end{bmatrix} \quad
 
 W= \begin{bmatrix}
 w_{00} & ... & w_{0j}\\
 . & . & .\\
 . &  . & .\\
-w_{i0} & ... & w_{ij}\end{bmatrix}
+w_{i0} & ... & w_{ij}\end{bmatrix} \quad
  
 B= \begin{bmatrix}
 b_{0} & ... b x_{j}\\
  \end{bmatrix}
 ```
+<br/>
 ```math  
 Y = XW + B
 
