@@ -52,7 +52,7 @@ The set of weights in the network encapsulates what the network has learned from
 In the first step first, multiply all input values with corresponding weight values and then add them to determine the weighted sum. Mathematically, we can calculate the weighted sum as follows:
 
 ```math
-\sum_{i=1}^n W_iX_i
+\sum_{i=0}^n W_iX_i
 ```
 
 ```Python
@@ -82,7 +82,7 @@ For more information about activations function, please visit this given Wikiped
 ```math  
 Y = 
 \begin{cases} 
-1, & \text{if} \quad \sum^n_{i=1} W_i X_i \geq 0 \\ 
+1, & \text{if} \quad \sum^n_{i=0} W_i X_i \geq 0 \\ 
 0, & \text{else} 
 \end{cases}
 ```
@@ -113,7 +113,7 @@ However, I will make an attempt to explain this with help of code.
  ```math
 Y = 
 \begin{cases} 
-1, & \text{if} \quad \sum^n_{i=1} W_i X_i + b \geq 0 \\ 
+1, & \text{if} \quad \sum^n_{i=0} W_i X_i + b \geq 0 \\ 
 0, & \text{else} 
 \end{cases}
 ```
@@ -189,14 +189,16 @@ Y = \sum_{i=0,j=0}^n X_i.W_{ij} + b_j
 ```math  
 X= \begin{bmatrix}
 x_{0} & ... & x_{i}\\
- \end{bmatrix} \quad
-
+ \end{bmatrix}  
+```
+```math 
 W= \begin{bmatrix}
 w_{00} & ... & w_{0j}\\
 . & . & .\\
 . &  . & .\\
-w_{i0} & ... & w_{ij}\end{bmatrix} \quad
- 
+w_{i0} & ... & w_{ij}\end{bmatrix}  
+ ```
+ ```math 
 B= \begin{bmatrix}
 b_{0} & ... & b x_{j}\\
  \end{bmatrix}
