@@ -205,6 +205,12 @@ b_{0} & ... & b_{j}\\
 y_j = \sum_{i=0,j=0}^n x_i.w_{ij} + b_j 
 ```
 
-```Python
+```Python filename="module.py"
+class Module:
+    def __init__(self):
+        self.input = None
+        self.output = None
 
+    def forward_pass(self, input):
+        raise NotImplementedError
 ```
