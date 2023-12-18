@@ -239,12 +239,13 @@ class Linear(Module):
 
  these are activation function i am using in this code
   - Binary Step Function
+    - Equation: $$f(x) = \begin{cases}1, & \text{if} \quad x \geq 0 \\0, & \text{else}\end{cases}$$
   - Sigmoid
-    - a $$f(x) =  \frac{\ {1} }{\ {1} + e^{-x} }$$
+    - Equation: $$f(x) =  \frac{\ {1} }{\ {1} + e^{-x} }$$
   - Relu
+    - Equation: $$f(x) =  \max(0,x)$$
   - Tenh
-    - A
-    - b
+    - Equation: $$f(x) =  \frac{\ e^{x} - e^{-x} } {\ e^{x} + e^{-x} } $$
  
 
 Why am I using the Binary Step Function in Multi-Layer Perceptron? We will assess the capability of our model to perform the XOR operation.
