@@ -385,7 +385,13 @@ import numpy as np
 from mlp import MLP_XOR
 
 x_train = np.array([[[0,0]], [[0,1]], [[1,0]], [[1,1]]])
-y_train = np.array([[[1,0]], [[0,1]], [[0,1]], [[1,0]]])
+# One-hot encoding for binary classification:
+# - [1, 0] represents the class label 0
+# - [0, 1] represents the class label 1
+y_train = np.array([[[1, 0]],   # Class 0
+                   [[0, 1]],    # Class 1
+                   [[0, 1]],    # Class 1
+                   [[1, 0]]])   # Class 0
 
 def predict(row, model):
 
