@@ -238,10 +238,6 @@ class Linear(Module):
 ```
 
 These are activation functions i am using in this code.
-  - Binary Step Function
-    - Equation: $$f(x) = \begin{cases}1, & \text{if} \quad x \geq 0 \\0, & \text{else}\end{cases}$$
-    - Image 
-<CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/activation/binary.png"  alt="MLP" height={512} width={512} />
   - Sigmoid
     - Equation: $$f(x) =  \frac{\ {1} }{\ {1} + e^{-x} }$$
     - Image 
@@ -364,7 +360,7 @@ class MLP_XOR(Module):
         self.act2 = ReLU()
         # third hidden layer and output
         self.hidden3 = Linear(3, output_size)
-        self.act3 = BinaryStep()
+        self.act3 = Sigmoid()
 
     # forward propagate input
     def forward(self, X):
@@ -388,8 +384,8 @@ main.py (run our model)
 import numpy as np
 from mlp import MLP_XOR
 
-x_train = np.array([[1,1], [0,1], [1,0], [0,0]])
-y_train = np.array([[0], [1], [1], [0]])
+x_train = np.array([[[0,0]], [[0,1]], [[1,0]], [[1,1]]])
+y_train = np.array([[[1,0]], [[0,1]], [[0,1]], [[1,0]]])
 
 def predict(row, model):
 
@@ -398,17 +394,17 @@ def predict(row, model):
     return Y
 
 
-model = MLP_XOR(input_size=2 ,output_size=1)
+model = MLP_XOR(input_size=2 ,output_size=2)
 
 output = predict(x_train, model)
 
 print(output)
 ```
 ### output
-[[1]\
- [1]\
- [1]\
- [1]]
+[[[0.5        0.5       ]]\
+ [[0.5039042  0.50094783]]\
+ [[0.50570128 0.499337  ]]\
+ [[0.5065558  0.49935189]]]\
 
 **Are we doing something wrong? Why is our output like this?** \
 **My answer is no**. Till now our MLP model doesn't know how to find patterns inside the logic. 
