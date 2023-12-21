@@ -213,8 +213,8 @@ class Module:
     def __init__(self):
         pass
 
-    def forward(self, input_features: int):
-      pass
+    def forward(self, input_features: float):
+        pass
 
     def backpropagation(self, output_error: float, learning_rate: float):
         pass
@@ -225,14 +225,14 @@ linear.py (implement our equation)
 from module import Module
 import numpy as np
 
-
 class Linear(Module):
-    def __init__(self, in_features: int, out_features: int, bias: bool = True, w_b_range: float = 0.5):
+    def __init__(self, input_size: int, output_size: int, bias: bool = True, w_b_range: float = 0.5):
         # Initialize weights with random values between -w_b_range and w_b_range
-        self.weights = np.random.rand(in_features, out_features) - w_b_range
+        super().__init__()
+        self.weights = np.random.rand(input_size, output_size) - w_b_range
 
         # Initialize bias if bias is True, otherwise set bias to 0.0
-        self.bias = np.random.rand(1, out_features) - w_b_range if bias else 0.0
+        self.bias = np.random.rand(1, output_size) - w_b_range if bias else 0.0
 
     def forward(self, input_features: float):
         self.input_features = input_features
@@ -310,7 +310,7 @@ from linear import Linear
 from activation import ReLU,Sigmoid
 class MLP(Module):
     # define model elements
-    def __init__(self, input_size:float, output_size:float):
+    def __init__(self, input_size:int, output_size:int):
 
         # input to first hidden layer
         self.hidden1 = Linear(input_size, 10)
@@ -323,10 +323,10 @@ class MLP(Module):
         self.act3 = Sigmoid()
 
     # forward propagate input
-    def forward(self, X):
+    def forward(self, input_features: float):
         # input to first hidden layer
 
-        X = self.hidden1.forward(X)
+        X = self.hidden1.forward(input_features)
         X = self.act1.forward(X)
         # second hidden layer
         X = self.hidden2.forward(X)
@@ -342,7 +342,7 @@ class MLP(Module):
 main.py (run our model)
 ```python  
 import numpy as np
-from mlp import MLP 
+from mlp import MLP
 
 x_train = np.array([[[0,0]], [[0,1]], [[1,0]], [[1,1]]])
 # One-hot encoding for binary classification:
