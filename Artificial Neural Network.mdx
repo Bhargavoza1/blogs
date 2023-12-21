@@ -208,13 +208,16 @@ y_j = \sum_{i=0,j=0}^n x_i.w_{ij} + b_j
 
 module.py (base class for all layers)
 ```python  
+# Base class
 class Module:
     def __init__(self):
-        self.input = None
-        self.output = None
+        pass
 
-    def forward_pass(self, input):
-        raise NotImplementedError
+    def forward(self, input_features: int):
+      pass
+
+    def backpropagation(self, output_error: float, learning_rate: float):
+        pass
 ```
 
 linear.py (implement our equation)
@@ -231,7 +234,7 @@ class Linear(Module):
         # Initialize bias if bias is True, otherwise set bias to 0.0
         self.bias = np.random.rand(1, out_features) - w_b_range if bias else 0.0
 
-    def forward(self, input_features: int):
+    def forward(self, input_features: float):
         self.input_features = input_features
         self.out_features = np.dot(self.input_features, self.weights) + self.bias
         return self.out_features
@@ -295,44 +298,6 @@ class Sigmoid(Module):
 
         # Return the result of the activation
         return self.activation
-
-
-class Tanh(Module):
-    def __init__(self):
-        super().__init__()
-
-    def tanh(self, x):
-        return np.tanh(x)
-
-    def forward(self, input_features):
-        # Forward pass of the tanh activation function
-        # Save the input features for potential use in the backward pass
-        self.input_features = input_features
-
-        # Apply the tanh activation element-wise
-        self.activation = self.tanh(self.input_features)
-
-        # Return the result of the activation
-        return self.activation
-
-
-class BinaryStep(Module):
-    def __init__(self):
-        pass
-
-    def binary_step(self, x):
-        return 1 if x >= 0 else 0
-
-    def forward(self, input_features):
-        # Forward pass of the binary step activation function
-
-        # Save the input features for potential use in the backward pass
-        self.input_features = input_features
-        # Apply the binary step activation element-wise using np.vectorize
-        self.activation = np.vectorize(self.binary_step)(self.input_features)
-
-        # Return the result of the activation
-        return self.activation
 ```
 
 
@@ -342,24 +307,25 @@ mlp.py
 ```python
 from module import Module
 from linear import Linear
-from activation import ReLU,Sigmoid, Tanh , BinaryStep
-class MLP_XOR(Module):
+from activation import ReLU,Sigmoid
+class MLP(Module):
     # define model elements
     def __init__(self, input_size:float, output_size:float):
 
         # input to first hidden layer
-        self.hidden1 = Linear(input_size, 3)
+        self.hidden1 = Linear(input_size, 10)
         self.act1 = ReLU()
         # second hidden layer
-        self.hidden2 = Linear(3, 3)
+        self.hidden2 = Linear(10,10)
         self.act2 = ReLU()
         # third hidden layer and output
-        self.hidden3 = Linear(3, output_size)
+        self.hidden3 = Linear(10, output_size)
         self.act3 = Sigmoid()
 
     # forward propagate input
     def forward(self, X):
         # input to first hidden layer
+
         X = self.hidden1.forward(X)
         X = self.act1.forward(X)
         # second hidden layer
@@ -369,7 +335,6 @@ class MLP_XOR(Module):
         X = self.hidden3.forward(X)
         X = self.act3.forward(X)
         return X
-
 ```
 
 
@@ -377,7 +342,7 @@ class MLP_XOR(Module):
 main.py (run our model)
 ```python  
 import numpy as np
-from mlp import MLP_XOR
+from mlp import MLP 
 
 x_train = np.array([[[0,0]], [[0,1]], [[1,0]], [[1,1]]])
 # One-hot encoding for binary classification:
@@ -388,24 +353,39 @@ y_train = np.array([[[1, 0]],   # Class 0
                    [[0, 1]],    # Class 1
                    [[1, 0]]])   # Class 0
 
-def predict(row, model):
+def predict_and_print_results( model , input_data, target_data):
+    num_samples = len(input_data)
 
-    # make prediction
-    Y = model.forward(row)
-    return Y
+    for sample_index in range(num_samples):
+        input_sample = input_data[sample_index]
+        predicted_output = model.forward(input_sample)
+
+        actual_output = 0 if target_data[sample_index][0][0] == 1 else 1
+
+        print(f'{predicted_output[0] }')
+
+        if predicted_output[0][0] >= 0.5:
+            print(f'1st input for XOR: {input_sample[0][0]} 2nd input for XOR: {input_sample[0][1]} '
+                  f'Neural Network output is 0, actual output is: {actual_output}')
+        else:
+            print(f'1st input for XOR: {input_sample[0][0]} 2nd input for XOR: {input_sample[0][1]} '
+                  f'Neural Network output is 1, actual output is: {actual_output}')
 
 
-model = MLP_XOR(input_size=2 ,output_size=2)
 
-output = predict(x_train, model)
+model = MLP(input_size=2 ,output_size=2) 
+predict_and_print_results(model , x_train, y_train )
 
-print(output)
 ```
 ### output
-[[[0.50000000 0.50000000]]\
- [[0.50390420 0.50094783]]\
- [[0.50570128 0.49933700]]\
- [[0.50655580 0.49935189]]]
+[0.44724273 0.54032146]\
+1st input for XOR: 0 2nd input for XOR: 0 Neural Network output is 1, actual output is: 0\
+[0.4875954  0.54962158]\
+1st input for XOR: 0 2nd input for XOR: 1 Neural Network output is 1, actual output is: 1\
+[0.46728592 0.5354989 ]\
+1st input for XOR: 1 2nd input for XOR: 0 Neural Network output is 1, actual output is: 1\
+[0.51449871 0.55993924]\
+1st input for XOR: 1 2nd input for XOR: 1 Neural Network output is 0, actual output is: 0
 
 **Are we doing something wrong? Why is our output like this?** \
 **My answer is no**. Till now our MLP model doesn't know how to find patterns inside the logic. 
