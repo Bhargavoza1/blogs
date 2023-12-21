@@ -411,8 +411,18 @@ print(output)
 **My answer is no**. Till now our MLP model doesn't know how to find patterns inside the logic. 
 In simpler terms, the MLP lacks the ability to optimize its weight and bias values in order to produce the desired output. To overcome this limitation, we need to delve into the concept of backward propagation.
 
+To grasp the concept of backward propagation, it is essential to familiarize ourselves with several smaller concepts beforehand. I apologize for not being able to cover all the concepts here. I recommend you to revise the concepts of [Differential Calculus](https://aman.ai/primers/math/#differential-calculus)  and the concept of 
+[Chain Rule](https://aman.ai/primers/ai/chain-rule/). "Those things are really mandatory".
 
-<div className='text-MyRed '>Holding for a while. Programming for Backward propagation is done. You can visit this link [https://github.com/Bhargavoza1/simple-neural-network/tree/main/neuralnetwork](https://github.com/Bhargavoza1/simple-neural-network/tree/main/neuralnetwork).</div>
-<div className='text-MyRed '>But I am stuck on how to explain derivative concepts in simple terms.</div>
+## Loss or Cost function
+A loss function, often referred to as a cost function in machine learning, is a critical element in training models. It will find errors between predicted and actual outcomes, serving as a guide for optimization during the learning process. 
+
+In my approach, I am utilizing the Mean Squared Error (MSE), which measures the average squared difference between predictions and true values. MSE is a widely used cost function in deep learning, providing a comprehensive assessment of model performance by penalizing larger errors more significantly.
+
+
+Equation for Mean Squared Error
+```math
+\text{MSE} = \frac{1}{n} \sum_{i=1}^{n} (y_i - \hat{y}_i)^2
+```
 
 ## Backward propagation
