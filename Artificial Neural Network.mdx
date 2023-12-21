@@ -410,5 +410,15 @@ losses.py
 def mse(y_true, y_pred):
     return np.mean(np.power(y_true-y_pred, 2))
 ```
+## Gradient Descent
+
+Gradient Descent is an iterative optimization algorithm used to minimize the error or cost function in machine learning and optimization problems. 
+It works by adjusting parameters in the direction of steepest decrease of the function, as indicated by the negative gradient. This process is repeated until a minimum or satisfactory solution is reached.
+Wwe want to change some parameter in the MLP so that the total Cost fucntion decreases.
+
+```math
+w = w - \alpha \cdot \frac{dE}{dw}
+```
+w is the weight being updated, $\alpha$ is the learning rate controlling the step size, and  $\frac{dE}{dw}$ is the gradient of the cost function with respect to the weight, guiding the update direction.
 
 ## Backward propagation
