@@ -52,7 +52,7 @@ The set of weights in the network encapsulates what the network has learned from
 In the first step first, multiply all input values with corresponding weight values and then add them to determine the weighted sum. Mathematically, we can calculate the weighted sum as follows:
 
 ```math
-\sum_{i=0}^n W_iX_i
+\sum_{i=0}^n w_ix_i
 ```
 
 ```Python
@@ -83,7 +83,7 @@ or this blog -> [v7labs](https://www.v7labs.com/blog/neural-networks-activation-
 ```math  
 Y = 
 \begin{cases} 
-1, & \text{if} \quad \sum^n_{i=0} W_i X_i \geq 0 \\ 
+1, & \text{if} \quad \sum^n_{i=0} w_i x_i \geq 0 \\ 
 0, & \text{else} 
 \end{cases}
 ```
@@ -114,7 +114,7 @@ However, I will make an attempt to explain this with help of code.
  ```math
 Y = 
 \begin{cases} 
-1, & \text{if} \quad \sum^n_{i=0} W_i X_i + b \geq 0 \\ 
+1, & \text{if} \quad \sum^n_{i=0} w_i x_i + b \geq 0 \\ 
 0, & \text{else} 
 \end{cases}
 ```
