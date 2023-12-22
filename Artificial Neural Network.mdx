@@ -420,7 +420,7 @@ It works by adjusting parameters in the direction of steepest decrease of the fu
 We want to change some parameter in the MLP so that the total Cost fucntion decreases.
 
 ```math
-w = w - \alpha \cdot \frac{dE}{dw}
+w = w - \alpha \cdot \frac{\partialE}{\partialw}
 ```
 In above equation $w$ is the weight being updated, $\alpha$ is the learning rate controlling the step size, and  $\frac{dE}{dw}$ is the gradient of the cost function with respect to the weight, guiding the update direction.
 
@@ -437,3 +437,4 @@ The discovery of backpropagation, credited to researchers like Paul Werbos in th
 - **Update Weights:** The calculated gradients are used to update the weights of the neural network. This step involves adjusting the weights in the opposite direction of the gradients, aiming to minimize the error. Optimization algorithms, such as gradient descent, are often employed for this purpose.
 
 - **Iterative Process:**  The whole process of moving information through the network (forward pass) and learning from mistakes (backward pass) makes up one round of training. We do this a bunch of times (iterations or epochs), thanks to the discovery of backpropagation. The weights have been fine-tuned to reduce errors, and the network gets good at making predictions on both the training and validation data.
+ 
