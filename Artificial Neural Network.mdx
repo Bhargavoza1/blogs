@@ -426,3 +426,13 @@ In above equation $w$ is the weight being updated, $\alpha$ is the learning rate
 Check out the website for a more in-depth explanation. [https://builtin.com/data-science/gradient-descent](https://builtin.com/data-science/gradient-descent)
 
 ## Backward propagation
+Backward propagation, also known as the backward pass, is the phase in the training of neural networks where the model learns and adjusts its weights based on the computed error. This iterative process is crucial for refining the network's performance. 
+The discovery of backpropagation, credited to researchers like Paul Werbos in the 1974, laid the groundwork for this key training algorithm. The key steps in backward propagation are as follows:
+
+- **Calculate Error:** The first step in the backward pass involves computing the error by comparing the predicted output generated during the forward pass with the actual target values. This error is a measure of how well the model is performing on the given task.
+
+- **Compute Gradients:** The gradient of the loss with respect to each weight in the network is calculated. This is achieved using the chain rule of calculus, breaking down the overall gradient into contributions from each layer. The gradient provides information about how the loss would change with a small adjustment to each weight.
+
+- **Update Weights:** The calculated gradients are used to update the weights of the neural network. This step involves adjusting the weights in the opposite direction of the gradients, aiming to minimize the error. Optimization algorithms, such as gradient descent, are often employed for this purpose.
+
+- **Iterative Process:**  The whole process of moving information through the network (forward pass) and learning from mistakes (backward pass) makes up one round of training. We do this a bunch of times (iterations or epochs), thanks to the discovery of backpropagation. The weights have been fine-tuned to reduce errors, and the network gets good at making predictions on both the training and validation data.
