@@ -468,7 +468,7 @@ Now, new equation written as:
 ```
 Now, we proceed with the calculation of each term individually in order to derive equations that will assist us in writing Python code.
 
-partial differentiation of the cost function with respect to the activation function
+Partial differentiation of the cost function with respect to the activation function. basicaly it is derivative of the Mean Squared Error.
 ```math
 \frac{\partial C}{\partial S} = \frac{\partial (\frac1n(y-S)^{2}) }{\partial S} 
 
@@ -477,7 +477,10 @@ partial differentiation of the cost function with respect to the activation func
 = \frac2n.(y-S)
 ```
 
+losses.py 
 ```python 
+def mse_derivative(y_true, y_pred):
+    return (2/y_true.size) * (y_pred - y_true)
 ```
 
 
