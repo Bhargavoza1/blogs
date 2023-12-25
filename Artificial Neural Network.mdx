@@ -446,7 +446,9 @@ This involves computing the gradient of the Cost function with respect to $ W_2 
 
 But here's the catch: we cannot directly perform partial differentiation of the cost function with respect to $ W_2 $ . We have to split the equation into multiple terms, applying the chain rule to handle each part separately.
 
-In general, most of the time we observe chain rule is calculated between cost function, the summation of weights and input features, and then computing the derivative with respect to the specific weight.
+In general, Most of the time we observe that the chain rule for partial differentiation of the cost function with respect to weight consists of only two terms: 
+ - the partial differentiation of the cost function with respect to the output  $\frac{\partial C}{\partial y}$
+ - the partial differentiation of the output with respect to the weight. $\frac{\partial y}{\partial w_2}$
 ```math
 \frac{\partial C}{\partial w_2} =  \frac{\partial C}{\partial y} \times \frac{\partial y}{\partial w_2}
 ```
