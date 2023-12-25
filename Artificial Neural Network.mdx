@@ -458,7 +458,10 @@ But, we have included the activation function between the cost function and the 
 we have to expand it further.
  - considering the partial differentiation of the cost function with respect to the activation function, denoted as $\frac{\partial C}{\partial S}$.
  - the partial differentiation of the activation function with respect to the output. $\frac{\partial S}{\partial y}$
+
+
 Here activation function is Sigmoid function.
+
 Now, new equation written as:
 ```math
 \frac{\partial C}{\partial w_2} =  \frac{\partial C}{\partial S} \times \frac{\partial S}{\partial y} \times \frac{\partial y}{\partial w_2}
