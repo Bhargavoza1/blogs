@@ -401,13 +401,13 @@ In my approach, I am utilizing the Mean Squared Error (MSE), which measures the 
 
 Equation for Mean Squared Error
 ```math
-\text{MSE} = \frac{1}{n} \sum_{i=0}^{n} (y_i - \hat{y}_i)^2
+\text{MSE} = \frac{1}{n} \sum_{i=0}^{n} (\hat{y}_i-y_i)^2
 ```
 
 losses.py 
 ```python  
 def mse(y_true, y_pred):
-    return np.mean(np.power(y_true-y_pred, 2))
+    return np.mean(np.power(y_pred-y_true, 2))
 ```
 
 Check out the website for a more in-depth explanation. [https://builtin.com/machine-learning/cost-function](https://builtin.com/machine-learning/cost-function)
