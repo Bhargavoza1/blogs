@@ -446,7 +446,16 @@ This involves computing the gradient of the Cost function with respect to $ W_2 
 
 But here's the catch: we cannot directly perform partial differentiation of the cost function with respect to $ W_2 $ . We have to split the equation into multiple terms, applying the chain rule to handle each part separately.
 
+In general, most of the time we observe chain rule is calculated between cost function, the summation of weights and input features, and then computing the derivative with respect to the specific weight.
+```math
+\frac{\partial C}{\partial w_2} =  \frac{\partial C}{\partial y} \times \frac{\partial y}{\partial w_2}
+```
+But, we have included the activation function between the cost function and the summation of weights and input features. This means we cannot directly perform $\frac{\partial C}{\partial y}$ ; 
+we have to expand it further, considering the derivative with respect to the input of the activation function, denoted as $\frac{\partial C}{\partial S}$
 
+```math
+\frac{\partial C}{\partial w_2} =  \frac{\partial C}{\partial S} \times \frac{\partial S}{\partial y} \times \frac{\partial y}{\partial w_2}
+```
 
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
