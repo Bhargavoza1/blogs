@@ -466,6 +466,15 @@ Now, new equation written as:
 ```math
 \frac{\partial C}{\partial w_2} =  \frac{\partial C}{\partial S} \times \frac{\partial S}{\partial y} \times \frac{\partial y}{\partial w_2}
 ```
+Now, we calculate each term one by one to find equation to write code in python
+```math
+\frac{\partial C}{\partial S} = \frac{\partial (\frac1n(y-S)^{2}) }{\partial S} 
+
+\\
+
+= (\frac2n).(y-S)
+```
+
 
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
