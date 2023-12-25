@@ -441,6 +441,12 @@ Sounds like Backward propagation and gradient descent are interconnected.
 
 ### Backward propagation at the output layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPOL.png"  alt="MLP" height={383} width={873} />
+It appears that there are numerous activities taking place in the image above. Don't worry, we are breaking down the backpropagation process for the output layer with respect to  $ W_2 $ ​ . 
+This involves computing the gradient of the Cost function with respect to $ W_2 $ ​ and subsequently using gradient descent, an optimization algorithm, to update the weight in order to minimize the overall loss during training.
+
+But here's the catch: we cannot directly perform partial differentiation of the cost function with respect to $ W_2 $ . We have to split the equation into multiple terms, applying the chain rule to handle each part separately.
+
+
 
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
