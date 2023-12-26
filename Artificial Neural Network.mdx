@@ -579,3 +579,16 @@ finding derivative of ReLU function.
 \end{cases}
 \end{align*}
 ```
+activation.py
+```python 
+class ReLU(Module):
+
+    def relu_derivative(self, x):
+        # Subgradient of the ReLU activation function
+        return np.where(x >= 0, 1, 0)
+
+    #here output_error is dC/dR
+    #Remember we are doing Element-wise products between relu_derivative and output_error
+    def backpropagation(self, output_error: float, learning_rate: float):
+        return self.relu_derivative(self.input_features) * output_error
+```
