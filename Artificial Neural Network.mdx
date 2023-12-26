@@ -618,3 +618,6 @@ class MLP(Module):
         X = self.act1.backpropagation(X , learning_rate)
         X = self.hidden1.backpropagation(X , learning_rate)
 ```
+
+The whole process of moving information through the network (forward pass) and learning from mistakes (backward pass) makes up one round of training. 
+We do this a bunch of times (iterations or epochs), thanks to the discovery of backpropagation. The weights have been fine-tuned to reduce errors, and the network gets good at making predictions on both the training and validation data.
