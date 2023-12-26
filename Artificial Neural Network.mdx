@@ -212,13 +212,13 @@ module.py (base class for all layers)
 # Base class
 class Module:
     def __init__(self):
-        pass
+       pass
 
     def forward(self, input_features: float):
-        pass
+        raise NotImplementedError("Subclasses must implement my_abstract_method")
 
     def backpropagation(self, output_error: float, learning_rate: float):
-        pass
+        raise NotImplementedError("Subclasses must implement my_abstract_method")
 ```
 
 linear.py (implement our equation)
@@ -229,7 +229,6 @@ import numpy as np
 class Linear(Module):
     def __init__(self, input_size: int, output_size: int, bias: bool = True, w_b_range: float = 0.5):
         # Initialize weights with random values between -w_b_range and w_b_range
-        super().__init__()
         self.weights = np.random.rand(input_size, output_size) - w_b_range
 
         # Initialize bias if bias is True, otherwise set bias to 0.0
@@ -371,7 +370,7 @@ def predict_and_print_results( model , input_data, target_data):
 
 
 
-model = MLP(input_size=2 ,output_size=2) 
+model = MLP(input_size=2 ,output_size=2 , hiddenlayer=3 ,h_l_dimension=20) 
 predict_and_print_results(model , x_train, y_train )
 
 ```
