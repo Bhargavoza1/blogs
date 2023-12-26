@@ -513,6 +513,9 @@ class Sigmoid(Module):
 =  x
 \end{align*}
 ```
+ 
+What about bais? We can take 
+$\frac{\partial E}{\partial y} =\frac{\partial E}{\partial b} $
 
 linear.py
 ```python 
@@ -526,6 +529,7 @@ class Linear(Module):
         self.weights -= learning_rate * weights_error
         self.bias -= learning_rate * output_error
 ```
+
 
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
