@@ -481,7 +481,14 @@ losses.py
 def mse_derivative(y_true, y_pred):
     return (2/y_true.size) * (y_pred - y_true)
 ```
-
+finding derivative of sigmoid function. 
+```math
+\begin{align*}
+\frac{\partial S}{\partial y} = \frac{\partial ( \frac{1}{1 + e^{-y}}) }{\partial y} 
+\\ \\ 
+=  S \times (1 - S)
+\end{align*}
+```
 
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
