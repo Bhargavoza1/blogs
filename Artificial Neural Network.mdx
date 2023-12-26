@@ -625,7 +625,7 @@ class MLP(Module):
 ```
 
 The whole process of moving information through the network (forward pass) and learning from mistakes (backward pass) makes up one round of training. 
-We do this a bunch of times (iterations or epochs), thanks to the discovery of backpropagation. The weights have been fine-tuned to reduce errors, and the network gets good at making predictions on both the training and validation data.
+We do this a bunch of times (iterations or epochs), thanks to the discovery of backpropagation. We can adjust the weights with this automated process. 
 
 ## Epoch
  - An epoch is one complete pass through the entire training dataset.
@@ -640,7 +640,8 @@ We do this a bunch of times (iterations or epochs), thanks to the discovery of b
 
 Finally, we have implemented every step to train our neural network.
 
- ```main.py
+main.py
+ ```python
 
     import numpy as np
     from mlp import MLP
