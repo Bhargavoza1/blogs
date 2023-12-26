@@ -492,6 +492,21 @@ finding derivative of sigmoid function.
 If you want to know how the sigmoid function is derived step by step, make sure to check out the provided website. [Derivative of Neural Activation Function
 ](https://yashgarg1232.medium.com/derivative-of-neural-activation-function-64e9e825b67)
 
+activation.py
+```python 
+class Sigmoid(Module):
+
+  def sigmoid_derivative(self, x):
+        # Derivative of the sigmoid activation function
+        sigmoid_x = self.sigmoid(x)
+        return sigmoid_x * (1 - sigmoid_x)
+
+  def backpropagation(self, output_error: float, learning_rate: float):
+        return self.sigmoid_derivative(self.input_features) * output_error
+
+
+```
+
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
 
