@@ -500,13 +500,30 @@ class Sigmoid(Module):
         # Derivative of the sigmoid activation function
         sigmoid_x = self.sigmoid(x)
         return sigmoid_x * (1 - sigmoid_x)
-        
-  #here output_error dE/dS
+
+  #here output_error is dC/dS
   def backpropagation(self, output_error: float, learning_rate: float):
         return self.sigmoid_derivative(self.input_features) * output_error
 
 ```
+ Now, for the final term . $\frac{\partial y}{\partial w_2}$
+```math
+\begin{align*}
+\frac{\partial y}{\partial w_2} = \frac{\partial ( x \times w_2+ b_2 ) }{\partial w_2} \\ \\ 
+=  x
+\end{align*}
+```
 
+linear.py
+```python 
+    def backpropagation(self, output_error, learning_rate):
+ 
+        weights_error = np.dot( self.input_features.T, output_error)
+
+        # Update weights and bias using gradient descent
+        self.weights -= learning_rate * weights_error
+        self.bias -= learning_rate * output_error
+```
 
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
