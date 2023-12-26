@@ -628,13 +628,13 @@ The whole process of moving information through the network (forward pass) and l
 We do this a bunch of times (iterations or epochs), thanks to the discovery of backpropagation. We can adjust the weights with this automated process. 
 
 ## Epoch
- - An epoch is one complete pass through the entire training dataset.
- - It represents a full cycle of the training data being presented to the neural network, and the network updating its weights and biases based on the error calculated on the entire dataset.
+ - An epoch corresponds to a single, complete cycle through the entire training dataset while the model is being trained.
+ - In each epoch, the model encounters and learns from every example in the training set exactly once.
  - Training a model for multiple epochs allows it to see the entire dataset multiple times, refining its parameters and improving performance.
 
 ## Batch Size
  - Batch size refers to the number of training examples utilized in one iteration.
- - In each iteration (or training step), the model processes a batch of training samples, computes the gradient of the loss function with respect to the model parameters, and updates the model's weights and biases.
+ - In each iteration (or training step), the model processes a batch of data instead of the entire dataset.
  - Batch size influences the speed of training, memory requirements, and the stochastic nature of the optimization process.
 
 
