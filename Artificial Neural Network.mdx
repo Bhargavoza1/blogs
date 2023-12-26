@@ -569,3 +569,13 @@ class Linear(Module):
         return input_error
 ```
 
+finding derivative of ReLU function.
+```math
+\begin{align*}
+\frac{\partial R}{\partial H}  = \frac{\partial ( max(0,x) ) }{\partial H} \\ \\ 
+=  \begin{cases}
+  1 & \text{if } x > 0 \\
+  0 & \text{if } x \leq 0
+\end{cases}
+\end{align*}
+```
