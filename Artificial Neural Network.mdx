@@ -521,7 +521,7 @@ $\frac{\partial E}{\partial y} =\frac{\partial E}{\partial b} = $ output_error
 linear.py
 ```python 
 class Linear(Module):
-    # here output_error can be dE/dS x dS/dy or dE/dR x dR/dH depend on activation function and layer type
+    # here output_error can be dC/dS x dS/dy or dC/dR x dR/dH depend on activation function and layer type
     def backpropagation(self, output_error, learning_rate):
  
         weights_error = np.dot( self.input_features.T, output_error)
@@ -556,7 +556,7 @@ Now, we can find
 linear.py
 ```python
 class Linear(Module):
-    # here output_error can be dE/dS x dS/dy or dE/dR x dR/dH depend on activation function and layer type
+    # here output_error can be dC/dS x dS/dy or dC/dR x dR/dH depend on activation function and layer type
     def backpropagation(self, output_error, learning_rate):
 
         #input_error is input for previous layer
