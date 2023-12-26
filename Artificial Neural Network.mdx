@@ -600,3 +600,22 @@ class ReLU(Module):
 =  x
 \end{align*}
 ```
+
+Writing every layer in reverse order. 
+
+mlp.py
+```python
+class MLP(Module):
+        def backpropagation(self, output_error: float, learning_rate: float):
+        X = self.act3.backpropagation(output_error, learning_rate)
+        X = self.hidden3.backpropagation(X, learning_rate)
+
+        for _ in range(self.hiddenlayer):
+            # second hidden layer
+            X = self.act2.backpropagation(X, learning_rate)
+            X = self.hidden2.backpropagation(X, learning_rate)
+
+
+        X = self.act1.backpropagation(X , learning_rate)
+        X = self.hidden1.backpropagation(X , learning_rate)
+```
