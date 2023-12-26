@@ -516,6 +516,8 @@ class Sigmoid(Module):
 
 linear.py
 ```python 
+class Linear(Module):
+    
     def backpropagation(self, output_error, learning_rate):
  
         weights_error = np.dot( self.input_features.T, output_error)
