@@ -535,6 +535,12 @@ class Linear(Module):
 ### Backward propagation at Hidden layer
 <CustomImage src="https://raw.githubusercontent.com/Bhargavoza1/blogs/main/images/ann/BPHL.png"  alt="MLP" height={383} width={873} />
 In this section, we are breaking down the backpropagation process for the hidden layer with respect to $w_1$.\
-The biggest question will arise. how we can find  $\frac{\partial C}{\partial R}$ (here R is ReLU activation function). 
+The biggest question will arise. how we can find  $\frac{\partial C}{\partial R}$ (here R is ReLU activation function). And what is input from output layer?
 
-
+Using the chain rule, we can expand this equation to.
+```math
+\frac{\partial C}{\partial R} = 
+ \frac{\partial C}{\partial S} \times \frac{\partial S}{\partial y} \times \frac{\partial y}{\partial R}
+```
+With the help of this equation, we can find the input from output layer. \
+We have $\frac{\partial C}{\partial S}$ and $\frac{\partial S}{\partial y}$, but we dont know what is this term $\frac{\partial y}{\partial R}$ for.
