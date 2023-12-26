@@ -454,7 +454,7 @@ So, together, the expressions can be written as:
 ```math
 \frac{\partial C}{\partial w_2} =  \frac{\partial C}{\partial y} \times \frac{\partial y}{\partial w_2}
 ```
-But, we have included the activation function between the cost function and the summation of weights and input features. This means we cannot directly perform $\frac{\partial C}{\partial y}$; 
+However, we have included the activation function between the cost function and the summation of weights and input features. This means we cannot directly perform $\frac{\partial C}{\partial y}$; 
 we have to expand it further.
  - considering the partial differentiation of the cost function with respect to the activation function, denoted as $\frac{\partial C}{\partial S}$.
  - the partial differentiation of the activation function with respect to the output. $\frac{\partial S}{\partial y}$
@@ -466,9 +466,9 @@ Now, new equation written as:
 ```math
 \frac{\partial C}{\partial w_2} =  \frac{\partial C}{\partial S} \times \frac{\partial S}{\partial y} \times \frac{\partial y}{\partial w_2}
 ```
-Now, we proceed with the calculation of each term individually in order to derive equations that will assist us in writing Python code.
+Now, we calculate each term individually to derive equations that will assist us in writing Python code.
 
-Partial differentiation of the cost function with respect to the activation function. basicaly it is derivative of the Mean Squared Error.
+Partial differentiation of the cost function with respect to the activation function. Basically, it is the derivative of the Mean Squared Error.
 ```math
 \begin{align*}
 \frac{\partial C}{\partial S} = \frac{\partial ( \frac{1}{n} \sum_{i=0}^{n} (S_i - \text{y}_i)^2) }{\partial S} \\ \\ 
