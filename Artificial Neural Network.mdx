@@ -688,7 +688,7 @@ main.py
                 input_sample = input_data[sample_index]
                 predicted_output = model.forward(input_sample)
 
-                # Compute loss (for display purposes only)
+                # Compute loss  
                 total_error += mse(target_data[sample_index], predicted_output)
 
                 # Backward propagation
