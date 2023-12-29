@@ -519,8 +519,11 @@ class Sigmoid(Module):
 \end{align*}
 ```
  
-What about bais? We can take 
-$\frac{\partial E}{\partial y} =\frac{\partial E}{\partial b} = $ output_error
+What about bais? \
+$\frac{\partial C}{\partial b} = \frac{\partial C}{\partial S} \times \frac{\partial S}{\partial y} \times \frac{\partial y}{\partial b} $\
+$\frac{\partial y}{\partial b} = 1$ \ 
+We can take\
+$\frac{\partial C}{\partial y} =\frac{\partial C}{\partial b} = $ output_error
 
 linear.py
 ```python 
