@@ -29,3 +29,32 @@ enabling the bundling of an application and its dependencies into a singular ent
 
 
 I suggest visiting the provided link for a more detailed explanation of Docker architecture [docker-architecture](https://docs.docker.com/get-started/overview/#docker-architecture).
+
+
+# Virtual machines vs Docker
+
+Virtual machines (VMs) and Docker are both technologies used for virtualization, but they operate at different levels of abstraction and have distinct characteristics.
+
+## Virtual Machines (VMs):
+
+1. **Hypervisor-Based**: VMs use a hypervisor to create and manage multiple virtualized instances of an operating system on a single physical server.
+
+2. **Resource Overhead**: VMs typically have more resource overhead compared to containers because each VM includes a full operating system, along with the application and its dependencies.
+
+3. **Isolation**: VMs provide strong isolation since each VM runs its own kernel, and there is a clear separation between the host and guest operating systems.
+
+4. **Portability**: VMs may be less portable because they encapsulate the entire operating system, making it bulkier and potentially less transferable between different environments.
+
+5. **Boot Time**: VMs generally have a longer startup time because they need to boot a complete operating system.
+
+## Docker Containers:
+
+1. **Containerization**: Docker uses containerization to package an application and its dependencies together. Containers share the host OS kernel but have isolated file systems and resources.
+  
+2. **Resource Efficiency**: Containers are more lightweight compared to VMs, as they don't need a full operating system for each instance. They share the host OS kernel, which results in less resource overhead.
+ 
+3. **Isolation**: While containers provide isolation, it is not as strong as VMs since they share the same OS kernel. This makes them suitable for many scenarios but may not be ideal for applications with strict security requirements.
+ 
+4. **Portability**: Containers are highly portable, as they encapsulate the application and its dependencies, making it easier to move between different environments.
+ 
+5. **Boot Time**: Containers have a faster startup time since they don't need to boot a full operating system; they launch quickly.
