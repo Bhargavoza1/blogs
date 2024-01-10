@@ -65,3 +65,37 @@ Installation guide for [windows](https://docs.docker.com/desktop/install/windows
 Installation guide for [Linux](https://docs.docker.com/desktop/install/linux-install/).
 
 
+# Docker image
+A Docker image is a lightweight, standalone, and executable package that includes everything needed to run a piece of software, including the code, runtime, libraries, and system tools. 
+Docker images are built from a set of instructions called a Dockerfile, which specifies the steps needed to create the image. Once an image is created, it can be used to run containers, which are instances of the image.
+
+## Example
+Creating a Dockerfile for a React app involves specifying the base image, setting up the environment, copying the necessary files, and defining the commands to build and run the application. Below is a basic example of a Dockerfile for a React app
+
+```Docker
+# Use an official Node.js image as the base image
+FROM node:14-alpine
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the container
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the entire app directory to the container
+COPY . .
+
+# Build the React app
+RUN npm run build
+
+# Expose the port the app runs on
+EXPOSE 3000
+
+# Define the command to run your app
+CMD ["npm", "start"]
+
+```
+
