@@ -70,8 +70,9 @@ A Docker image is a lightweight, standalone, and executable package that include
 Docker images are built from a set of instructions called a Dockerfile, which specifies the steps needed to create the image. Once an image is created, it can be used to run containers, which are instances of the image.
 
 ## Example
-Creating a Dockerfile for a React app involves specifying the base image, setting up the environment, copying the necessary files, and defining the commands to build and run the application. Below is a basic example of a Dockerfile for a React app
+Creating a Dockerfile for a React app involves specifying the base image, setting up the environment, copying the necessary files, and defining the commands to build and run the application. Below is a basic example of a Dockerfile for a React app.  
 
+github repository [docker-example](https://github.com/Bhargavoza1/docker-example).
 ```Docker
 # Use an official Node.js image as the base image
 FROM node:14-alpine
@@ -99,3 +100,10 @@ CMD ["npm", "start"]
 
 ```
 
+To build and run your Docker image, navigate to the directory containing your Dockerfile and run the following commands in the terminal.
+
+```bash
+docker build -t react-app .
+docker run -p 3000:3000 react-app
+```
+After successfully building and running your Docker instance, your React app should be accessible at **http://localhost:3000** in your web browser.
