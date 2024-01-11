@@ -107,3 +107,24 @@ docker build -t react-app .
 docker run -p 3000:3000 react-app
 ```
 After successfully building and running your Docker instance, your React app should be accessible at **http://localhost:3000** in your web browser.
+
+
+
+# Docker Compose
+
+Docker Compose is a tool that allows you to define and manage multi-container Docker applications. 
+It uses a YAML file to configure the services, networks, and volumes required for your application, making it easy to define, manage, 
+and run multiple containers as a single unit. With Docker Compose, you can specify the entire application stack, including the services, their dependencies, and the configuration details, in a single file.
+
+Key Features of Docker Compose:
+
+1. **Declarative Configuration**: Docker Compose uses a declarative syntax, allowing developers to specify the desired state of the application stack. This simplifies the process of defining and sharing configurations, making it easier to collaborate on complex projects.
+
+2. **Service Definitions**: With Docker Compose, you can define each service that makes up your application. This includes details such as the base image, ports, environment variables, volumes, and dependencies. Services can be customized to meet the specific requirements of each component.
+
+3. **Container Orchestration**: Docker Compose excels at orchestrating the startup and shutdown of multiple containers. It ensures that dependencies are started in the correct order, simplifying the process of managing interconnected services.
+
+4. **Network Isolation**: Docker Compose creates a default network for your application, enabling seamless communication between services. This network isolation ensures that containers can communicate with each other without exposing unnecessary ports to the host machine.
+
+5. **Volume Management**: Persistent data storage is crucial for many applications. Docker Compose allows you to define volumes, ensuring that data persists across container restarts. This is particularly useful for databases and other stateful services.
+
