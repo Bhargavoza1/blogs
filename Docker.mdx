@@ -128,3 +128,39 @@ Key Features of Docker Compose:
 
 5. **Volume Management**: Persistent data storage is crucial for many applications. Docker Compose allows you to define volumes, ensuring that data persists across container restarts. This is particularly useful for databases and other stateful services.
 
+Below is an example of a docker-compose.yml file for a React app:
+
+docker-compose.yml
+```YAML
+version: '3'
+
+services:
+  # React App
+  react-app:
+    image: node:14-alpine
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./client:/app
+    command: sh -c "npm install && npm start"
+    depends_on:
+      - api-server
+ 
+# API Server
+  api-server:
+    image: node:14-alpine
+    working_dir: /api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/api
+    command: sh -c "npm install && node server.js"
+```
+
+Save the docker-compose.yml file in your project root.  
+Open a terminal and navigate to the project root.  
+
+Run docker-compose up to build the images and start the services.
+
+React app will be accessible at http://localhost:3000, and the API server will be available at http://localhost:8080.
