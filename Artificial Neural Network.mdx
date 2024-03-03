@@ -307,10 +307,9 @@ from linear import Linear
 from activation import ReLU,Sigmoid
 class MLP(Module):
     # define model elements
-    def __init__(self, input_size:int, output_size:int , hiddenlayer:int = 1, h_l_dimension:int = 10):
+    def __init__(self, input_size:int, output_size:int  , h_l_dimension:int = 10):
 
         self.h_l_dimension = h_l_dimension
-        self.hiddenlayer = hiddenlayer
         # input to first hidden layer
         self.hidden1 = Linear(input_size, self.h_l_dimension)
         self.act1 = ReLU()
@@ -328,10 +327,10 @@ class MLP(Module):
         X = self.hidden1.forward(input_features)
         X = self.act1.forward(X)
 
-        for _ in range(self.hiddenlayer):
-            # second hidden layer
-            X = self.hidden2.forward(X)
-            X = self.act2.forward(X)
+
+        # second hidden layer
+        X = self.hidden2.forward(X)
+        X = self.act2.forward(X)
 
         # third hidden layer and output
         X = self.hidden3.forward(X)
@@ -613,14 +612,14 @@ Writing every layer in reverse order.
 mlp.py
 ```python
 class MLP(Module):
-        def backpropagation(self, output_error: float, learning_rate: float):
+    def backpropagation(self, output_error: float, learning_rate: float):
         X = self.act3.backpropagation(output_error, learning_rate)
         X = self.hidden3.backpropagation(X, learning_rate)
 
-        for _ in range(self.hiddenlayer):
-            # second hidden layer
-            X = self.act2.backpropagation(X, learning_rate)
-            X = self.hidden2.backpropagation(X, learning_rate)
+
+        # second hidden layer
+        X = self.act2.backpropagation(X, learning_rate)
+        X = self.hidden2.backpropagation(X, learning_rate)
 
 
         X = self.act1.backpropagation(X , learning_rate)
@@ -705,7 +704,7 @@ main.py
 
 
 
-    model = MLP(input_size=2 ,output_size=2 , hiddenlayer=3 ,h_l_dimension=20)
+    model = MLP(input_size=2 ,output_size=2 , h_l_dimension=20)
     train_neural_network(model , x_train, y_train, num_epochs=3000, learning_rate=0.1)
     predict_and_print_results(model , x_train, y_train )
 
